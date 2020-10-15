@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Assignment</title>
+
+    </head>
+    <body>
+        
+            <label for="first">First Name</label>
+            <input type="text" name="first" id="first">
+            <label for="last">Last Name</label>
+            <input type="text" name="last" id="last">
+            <button onclick="myFunction()">Click me</button>
+            <br><br>
+            <p id="result"></p>
+
+            <script>
+                function myFunction()
+                {
+                    var a=document.getElementById("first").value;
+                    var b=document.getElementById("last").value;
+                    document.getElementById("result").innerHTML= concat(a,b);
+                
+                   function concat(a,b)
+                   { 
+                     return b+","+" "+a;
+                   }
+                }
+                
+            </script>
+       
+    </body>
+</html>
