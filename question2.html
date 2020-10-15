@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Assignment</title>
+        <script>
+            function time_convert()
+            { 
+               var seconds = document.getElementById('min').value * 60;
+               document.getElementById("demo").innerHTML = "Given minutes converted into " + seconds +" Seconds";  
+             }
+            
+        </script>
+    </head>
+    <body>
+        
+            <label for="minute">Minute</label><br>
+            <input type="text" name="minute" id="min">
+            <button onclick="time_convert()">Convert</button>
+            <br><br>
+            <p id="demo"></p>
+       
+    </body>
+</html>
