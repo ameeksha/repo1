@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            
+            function fartStrength()
+            {
+                beansCount = document.getElementById("beans").value;
+                strength = 2*(beansCount*beansCount) + 5*beansCount + 3;
+                document.getElementById("output").innerHTML= "Fart power is "+ strength;
+              
+            }
+            
+         </script>
+    </head>
+<body>
+
+<input type="text" id="beans">
+<button onclick="fartStrength()">Try it</button>
+<br><br>
+<p id="output"></p>
+</body>
+</html>
+
