@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+      <p id="demo" ></p>
+      <script>
+        var x= displayVoteCount();
+        document.getElementById("demo").innerHTML=x;
+        function displayVoteCount()
+        {
+            const obj= {
+                         upVote: 30,
+                         downVote: 10,
+                       }
+            return obj.upVote-obj.downVote;
+        }
+        
+        </script>
+    </body>
+</html>
+
