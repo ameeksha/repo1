@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Assignment</title>
+
+    </head>
+    <body>
+        
+            <label for="first">First String</label>
+            <input type="text" name="first" id="first">
+            <label for="second">Second String</label>
+            <input type="text" name="second" id="second">
+            <button onclick="myFunction()">Convert</button>
+
+            <br><br>
+            <p id="result"></p>
+
+            <script>
+                function myFunction()
+                {
+                    var a=document.getElementById("first").value;
+                    var b=document.getElementById("second").value;
+                    var x= compare(a,b);
+                    document.getElementById("result").innerHTML=x;
+                    function compare(a,b)
+                     { 
+                       if(a.length==b.length)  
+                        {
+                          return true;
+                        }
+                       else
+                        {
+                          return false;
+                        }
+                     }
+                }
+                
+            </script>
+       
+    </body>
+</html>
