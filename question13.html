@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Enter base number</p>
+
+<input type="text" id="baseInput"/>
+
+<p>Enter exponent number</p>
+
+<input type="text" id="exponentInput"/>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+ function getPower(baseInp, ExpInp)
+  {
+     var pow=1;
+     for(var i=0; i<ExpInp; i++)
+     {
+       pow= pow * baseInp
+     }
+     return pow
+}
+ function myFunction() 
+  { 
+     var base, exponent,x;
+     base = document.getElementById("baseInput").value;
+     exponent=document.getElementById("exponentInput").value;
+     x =getPower(base, exponent);
+     document.getElementById("demo").innerHTML="Power is " + x;
+  }
+
+
+</script>
+
+</body>
+</html>
+
