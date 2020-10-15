@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>If input number b is greater then 20 print "Yeah" otherwise print "Nope"</h1>
+<label>Enter value of b</label>
+<input type="text" name="b" id="num1"/>
+<button onclick="myFunction()">Try it</button>
+<br>
+<p id="demo"></p>
+<script>
+function myFunction() {
+  var b, result;
+  b = document.getElementById("num1").value;
+ result= (b>20) ?  "Yeah":"Nope";
+  
+ document.getElementById("demo").innerHTML= "Output: "+ result;
+
+   
+   
+}
+</script>
+</body>
+</html>
+
