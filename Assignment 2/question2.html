@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Assignment 2</title>
+    </head>
+    <body>
+        <button onclick='countTrue(["true","false","false","true","false"])'>Click</button>
+        <br><br>
+        <p id="demo"></p>
+        <script>
+            var count=0;
+            function countTrue(arr)
+            {
+                
+                for(i=0;i<arr.length;i++)
+                {
+                    if(arr[i]=="true")
+                    {
+                       count++;
+                    }
+                    
+                }
+                document.getElementById('demo').innerHTML="Output: "+count;
+            }
+            
+
+        </script>
+    </body>   
+    
+</html>

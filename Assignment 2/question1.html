@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Assignment 2</title>
+    </head>
+    <body>
+        <input type="text" name="num" id="num" placeholder="Enter any number">
+        <input type="text" name="len" id="len" placeholder="Enter length">
+        <button onclick="arrayOfMultiple(document.getElementById('num').value,document.getElementById('len').value)">Submit</button>
+        <br><br>
+        <p id="demo"></p>
+        <script>
+            function arrayOfMultiple(num, len)
+            {
+                var arr=[];
+                 for(i=1;i<=len;i++)
+                 {
+                   let mul=num*i;
+                   arr.push(mul);
+                 }
+                 console.log(typeof(arr))
+                 document.getElementById('demo').innerHTML="Output: "+ arr;
+            }
+            
+        </script>
+    </body>
+</html>

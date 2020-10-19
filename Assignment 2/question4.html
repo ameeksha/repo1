@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Assignment 2</title>
+    </head>
+    <body>
+        <p id="demo"></p>
+        <button onclick='getBudgets([
+        { name: "John", age: 21, budget: 23000 },
+        { name: "Steve", age: 32, budget: 40000 },
+        { name: "Martin", age: 16, budget: 2700 }
+        ])'>Click</button>
+        <br>
+        <p id="demo"></p>
+        <script>
+            function getBudgets(arr)
+            {
+                var result;
+                result=arr.reduce((a, b) => ({budget: a.budget + b.budget}));
+                
+                document.getElementById('demo').innerHTML="The sum of budget is : "+result.budget;
+            }
+
+        </script>
+    </body>
+</html>

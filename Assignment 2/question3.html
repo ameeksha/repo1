@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Assignment 2</title>
+    </head>
+    <body>
+        <button onclick="findNemo('He is the Best player')">Click</button>
+        <br>
+        <p id="demo"></p>
+        <script>
+            
+            function findNemo(str)
+            {
+               var arr,result;
+               arr=str.split(" "); 
+               result= arr.indexOf('Best')
+               if(result>-1)
+               {
+                 result=result+1;
+                 document.getElementById('demo').innerHTML="I found Best at "+ result ;
+               }
+               else
+               document.getElementById('demo').innerHTML="I can't find Best ";
+
+            //    console.log(result); 
+            //    console.log(result+1);
+            }
+        </script>
+    </body>
+</html>

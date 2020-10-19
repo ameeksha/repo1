@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Assignment 2</title>
+    </head>
+    <body>
+        <button onclick="sortByLength('Have a wonderful day')">Click</button>
+        <br><br>
+        <p id="demo"></p>
+        <script>
+            
+            function sortByLength(str)
+            {
+                var arr,txt="";
+                arr=str.split(" ");
+                
+                arr.sort(function (a,b){return a.length - b.length});
+                txt=arr.toString();
+                txt=txt.replace(/,/g, " ");
+                document.getElementById('demo').innerHTML="Output: "+ txt;
+               
+                
+                
+            }
+        </script>
+    </body>
+</html>

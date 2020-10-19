@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Assignment 2</title>
+    </head>
+    <body>
+        <p id="dur"></p>
+        <br>
+        <p id="nam"></p>
+
+        <script>
+            class Abc{
+                        
+                calculateDuration(m){
+                    var duration=0;
+                    for (let i = 0; i < m.length; i++)
+                     {
+                        
+                        var arr=m;
+                        duration+=arr[i].duration;
+                        
+                     }
+                    //  document.write("Duration: "+duration);
+                     document.getElementById('dur').innerHTML="Duration: "+duration;
+                }
+                 getAllName(m)
+                 {
+                     var names=[];
+                     for (let i = 0; i < m.length; i++)
+                     {
+                        var arr=m;
+                        names.push(arr[i].name);
+                     }
+                    //  document.write("Names: "+names);
+                     document.getElementById('nam').innerHTML="Names: "+names;
+
+
+                }
+            }
+           var movies = [
+                                     { 'name' : 'Baaghi', 'duration' : 120 },
+                                     {'name' : 'Panga', 'duration' : 60 },
+                                     {'name' : 'Drive', 'duration' : 240 }
+                         ];
+
+          var obj= new Abc();
+          obj.calculateDuration(movies);
+          obj.getAllName(movies);
+
+    
+
+        </script>
+    </body>
+</html>

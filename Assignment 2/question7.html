@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Assignment 2</title>
+    </head>
+    <body>
+        <button onclick="sortByLength([4,7,1,6,3,2])">Click</button>
+        <br><br>
+        <p id="demo"></p>
+        <script>
+            
+            function sortByLength(arr)
+            {
+            
+                arr.sort((a,b)=>{return a - b});
+                document.getElementById('demo').innerHTML="Output: "+ arr;
+                
+                
+            }
+        </script>
+    </body>
+</html>
