@@ -11,32 +11,27 @@
         <script>
             class Abc{
                         
-                calculateDuration(m){
-                    var duration=0;
-                    for (let i = 0; i < m.length; i++)
-                     {
-                        
-                        var arr=m;
-                        duration+=arr[i].duration;
-                        
-                     }
-                    //  document.write("Duration: "+duration);
-                     document.getElementById('dur').innerHTML="Duration: "+duration;
+                calculateDuration(m)
+                {
+                    var duration=0
+                    var x= m.map(({duration}) => duration);
+                    var sum = x.reduce(myFunction);
+
+                     function myFunction(total, value, index, array)
+                      {
+                        return total + value;
+                       } 
+                   
+                     document.getElementById('dur').innerHTML="Duration: "+sum;
                 }
                  getAllName(m)
                  {
-                     var names=[];
-                     for (let i = 0; i < m.length; i++)
-                     {
-                        var arr=m;
-                        names.push(arr[i].name);
-                     }
-                    //  document.write("Names: "+names);
-                     document.getElementById('nam').innerHTML="Names: "+names;
-
-
-                }
-            }
+                    var name=[];
+                    var x= m.map(({name}) => name);
+                    console.log(x);
+                     document.getElementById('nam').innerHTML="Names: "+x;
+                  }
+              }
            var movies = [
                                      { 'name' : 'Baaghi', 'duration' : 120 },
                                      {'name' : 'Panga', 'duration' : 60 },
