@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import '../node_modules/font-awesome/css/font-awesome.css';
 // import Movies from './components/movies';
 
 // import 'font-awesome/css/font-awesome.css';

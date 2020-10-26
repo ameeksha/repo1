@@ -3,6 +3,8 @@ import React from 'react';
 import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import Movies from './components/movies';
+// import '../node_modules/font-awesome/css/font-awesome.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function App() {
   return (
