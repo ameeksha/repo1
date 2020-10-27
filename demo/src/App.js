@@ -1,16 +1,34 @@
 import React from 'react';
-// import logo from './logo.svg';
-import './App.css';
-import '../node_modules/bootstrap/dist/css/bootstrap.css';
+import {Route, Redirect, Switch} from 'react-router-dom';
 import Movies from './components/movies';
-// import '../node_modules/font-awesome/css/font-awesome.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import MovieForm from './components/movieForm';
+import Rentals from './components/rentals';
+import Customer from './components/customer';
+import NotFound from './components/notFound';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import NavBar from './components/navBar';
+import LoginForm from './components/loginForm';
+import './App.css';
+import RegisterForm from './components/registerForm';
 
 function App() {
   return (
+  <React.Fragment>
+    <NavBar ></NavBar>,
    <main className="container">
-    <Movies></Movies>
+    <Switch>
+    <Route path="/login" component={LoginForm} />
+    <Route path="/register" component={RegisterForm} />
+    <Route path="/movies/:id" component={MovieForm} />
+    <Route path="/movies" component={Movies} />
+    <Route path="/customer" component={Customer} />
+    <Route path="/rentals" component={Rentals} />
+    <Route path="/not-found" component={NotFound} />
+    <Redirect from="/" exact to="/movies" />
+    <Redirect to="/not-found" />
+    </Switch>
    </main>
+  </React.Fragment>
   );
 }
 
