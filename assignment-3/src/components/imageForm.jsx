@@ -7,7 +7,7 @@ export class ImageForm extends Component {
   {
     super(props);
     this.state ={
-      albumId:'',
+      albumId:this.props.albumid,
       title:'',
       url:'',
       thumbnailUrl:''

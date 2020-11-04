@@ -3,15 +3,16 @@ import { Modal, Button, Row, Col, Form } from 'react-bootstrap';
 import axios from 'axios';
 
 export class AlbumForm extends Component {
+  
   constructor(props)
   {
     super(props);
     this.state ={
-      userId:'',
+      userId:this.props.uId,
       title:''
     }
   }
-
+ 
   changeHandler= (e) =>
   {
     this.setState({[e.target.name]: e.target.value})
@@ -32,14 +33,11 @@ export class AlbumForm extends Component {
       })
   }
 
-  // getId= () =>
-  // {
-  //   console.log('hhvhvhvhvh');
-  // }
 
   render() { 
+    
     const {userId, title}= this.state;
-    // const x= this.getId();
+  
     return ( 
       <Modal
       {...this.props}
@@ -56,14 +54,16 @@ export class AlbumForm extends Component {
        <div>
          <form   onSubmit={this.submitHandler}>
            <div>
-           <input type='text' name='userId' value={userId} onChange={this.changeHandler} />
+           <input type='hidden' name='userId' value={userId} onChange={this.changeHandler} />
            </div>
            <div>
              <input type="text" name="title" value={title} onChange={this.changeHandler}/>
            </div>
            <button type="submit">Add</button>
          </form>
+
        </div>
+      
       </Modal.Body>
     </Modal>
      );

@@ -57,7 +57,7 @@ class UserData extends Component {
                 <ButtonToolbar>
                     <Button className="mt-4 mb-4" variant="primary" onClick={() => this.setState({addModalShow:true})}>Add Album</Button>
                
-                     <AlbumForm  show={this.state.addModalShow} onHide={addModalClose}></AlbumForm>
+                     <AlbumForm uId={this.props.match.params.id}  show={this.state.addModalShow} onHide={addModalClose}></AlbumForm>
                 </ButtonToolbar>
                 
                 <table className="table table-bordered table-hover" >

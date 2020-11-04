@@ -53,22 +53,6 @@ class Users extends Component {
                     </tbody>
                 </table>
 
-
-                {/* {
-                            this.state.users.map(user =>
-                                <ul key={user._id}>
-                                    <li onClick={`/users/${user.id}`}>{user.name}</li>
-                                </ul>
-                                )
-                            
-                        } */}
-                        {/* <ul>
-                               { this.state.users.map(user => 
-                                <li key={user.id}>
-                                    <Link  to={`/users/${user.id}`}>{user.name}</Link>
-                                </li>)}
-                            </ul> */}
-               
             </React.Fragment>
 
              );

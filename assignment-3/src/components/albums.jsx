@@ -21,23 +21,16 @@ class Albums extends Component {
         if(count === 0) return <p>There are no album in database</p>
         return (
                   <React.Fragment>
-                    {/* <ul>
-                     { this.state.albums.map(album => 
-                        <li key={album.id}>
-                          <Link to={`/albums/${album.id}`}>{album.title}</Link>
-                        </li>)
-                      }
-                    </ul> */}
-
-                <table className="table table-bordered table-hover mt-4 " >
-                    <thead className="bg-secondary">
+                
+                     <table className="table table-bordered table-hover mt-4 " >
+                       <thead className="bg-secondary">
                         <tr className="text-center">
                             <th>Id</th>
                             <th>User Id</th>
                             <th>Title</th>
                         </tr>
-                    </thead>
-                    <tbody>
+                       </thead>
+                       <tbody>
                         {
                             this.state.albums.map(album =>
                                 <tr key={album.id}>
@@ -47,8 +40,8 @@ class Albums extends Component {
                                 </tr>
                                 )
                         }
-                    </tbody>
-                </table>
+                       </tbody>
+                     </table>
                
                    </React.Fragment>
 

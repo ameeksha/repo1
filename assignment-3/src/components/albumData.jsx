@@ -44,7 +44,7 @@ class AlbumData extends Component {
                   <ButtonToolbar>
                     <Button className="mt-4 mb-4" variant="primary" onClick={() => this.setState({addModalShow:true})}>Add Album</Button>
                
-                     <ImageForm  show={this.state.addModalShow} onHide={addModalClose}></ImageForm>
+                     <ImageForm albumid={this.props.match.params.id}  show={this.state.addModalShow} onHide={addModalClose}></ImageForm>
                   </ButtonToolbar>
 
                   {
