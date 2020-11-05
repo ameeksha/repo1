@@ -32,6 +32,14 @@ export class ImageForm extends Component {
       {
         console.log(error);
       })
+
+      this.setState({
+      albumId:'',
+      title:'',
+      url:'',
+      thumbnailUrl:''
+
+      })
   }
 
   render() { 
@@ -52,16 +60,16 @@ export class ImageForm extends Component {
        <div>
          <form onSubmit={this.submitHandler}>
            <div>
-           <input type='text' name='albumId' value={albumId} onChange={this.changeHandler}/>
+           <input type='hidden' name='albumId' value={albumId} onChange={this.changeHandler}/>
            </div>
            <div>
-             <input type="text" name="title" value={title} onChange={this.changeHandler}/>
+             <input type="text" placeholder="Enter title" name="title" value={title} onChange={this.changeHandler}/>
            </div>
            <div>
-           <input type='text' name='url' value={url} onChange={this.changeHandler}/>
+           <input type='text' name='url' value={url} placeholder="Enter url" onChange={this.changeHandler}/>
            </div>
            <div>
-           <input type='text' name='thumbnailUrl' value={thumbnailUrl} onChange={this.changeHandler}/>
+           <input type='text' name='thumbnailUrl' value={thumbnailUrl} placeholder="Enter thumbnailurl" onChange={this.changeHandler}/>
            </div>
            <button type="submit">Add</button>
          </form>

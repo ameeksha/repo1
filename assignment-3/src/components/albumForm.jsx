@@ -31,6 +31,10 @@ export class AlbumForm extends Component {
       {
         console.log(error);
       })
+      this.setState({
+      userId:'',
+      title:''
+    })
   }
 
 
@@ -57,7 +61,7 @@ export class AlbumForm extends Component {
            <input type='hidden' name='userId' value={userId} onChange={this.changeHandler} />
            </div>
            <div>
-             <input type="text" name="title" value={title} onChange={this.changeHandler}/>
+             <input type="text" placeholder="Enter title" name="title" value={title} onChange={this.changeHandler}/>
            </div>
            <button type="submit">Add</button>
          </form>

@@ -48,7 +48,7 @@ class Users extends Component {
                                     <td>{user.website}</td>
                                     <td>{user.company.name}</td>
                                 </tr>
-                                )
+                               )
                         }
                     </tbody>
                 </table>

@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { Button, ButtonToolbar } from 'react-bootstrap';
 import { AlbumForm } from './albumForm';
+import queryString from 'query-string';
 
 
 class UserData extends Component {
@@ -15,41 +16,42 @@ class UserData extends Component {
     
    async componentDidMount() {
 
-    const promise= axios.get('https://jsonplaceholder.typicode.com/albums');
-    const responce = await promise;
-    const result=responce.data;
     const param=this.props.match.params.id;
 
-    for(let i=0;i<result.length;i++)
-    {
-        if(param == result[i].userId)
-        {
-            this.state.albums.push(result[i]);
-        }
-        
-    }
-
-    this.setState({albums: this.state.albums}) 
-     
-    }
-
+    // const promise= axios.get('https://jsonplaceholder.typicode.com/albums');
+    // const responce = await promise;
+    // const result=responce.data;
     
-    // addAlbum= async () =>
+    // for(let i=0;i<result.length;i++)
     // {
-    //     const obj= {title:'a', body:'b'};
-    //     const {data: post} = await axios.post('https://jsonplaceholder.typicode.com/albums',obj);
-    //     console.log(post);
+    //     if(param == result[i].userId)
+    //     {
+    //         this.state.albums.push(result[i]);
+    //     }
+        
     // }
 
-    // addAlbum (){
-    //     console.log('fgfvcgvcgfcgfc')
-    // }
+    // this.setState({albums: this.state.albums}) 
+
+
+    const promise= axios.get(`https://jsonplaceholder.typicode.com/albums?userId=${param}`);
+    const responce = await promise;
+    this.setState({albums: responce.data});
+
+
+    }
+
 
     render() { 
 
         const {length: count} = this.state.albums;
         if(count === 0) return <p>There are no album in database</p>
         let addModalClose= () => this.setState({addModalShow:false})
+
+        let modalSubmit= () => {
+            this.setState({addModalShow:false})
+            alert("New album is created")
+        }
         return (
             
             <React.Fragment>
@@ -57,7 +59,7 @@ class UserData extends Component {
                 <ButtonToolbar>
                     <Button className="mt-4 mb-4" variant="primary" onClick={() => this.setState({addModalShow:true})}>Add Album</Button>
                
-                     <AlbumForm uId={this.props.match.params.id}  show={this.state.addModalShow} onHide={addModalClose}></AlbumForm>
+                     <AlbumForm uId={this.props.match.params.id}  show={this.state.addModalShow} onHide={addModalClose} onSubmit={modalSubmit}></AlbumForm>
                 </ButtonToolbar>
                 
                 <table className="table table-bordered table-hover" >
