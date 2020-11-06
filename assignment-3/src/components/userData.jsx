@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { Button, ButtonToolbar } from 'react-bootstrap';
 import { AlbumForm } from './albumForm';
-import queryString from 'query-string';
-
 
 class UserData extends Component {
     state = { 
@@ -34,7 +31,7 @@ class UserData extends Component {
     // this.setState({albums: this.state.albums}) 
 
 
-    const promise= axios.get(`https://jsonplaceholder.typicode.com/albums?userId=${param}`);
+    const promise= axios.get(`https://jsonplaceholder.typicode.com/users/${param}/albums`);
     const responce = await promise;
     this.setState({albums: responce.data});
 

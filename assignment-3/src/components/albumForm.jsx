@@ -37,7 +37,6 @@ export class AlbumForm extends Component {
     })
   }
 
-
   render() { 
     
     const {userId, title}= this.state;

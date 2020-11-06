@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Button, ButtonToolbar } from 'react-bootstrap';
 import { ImageForm } from './imageForm';
-import queryString from 'query-string';
 
 
 
@@ -33,7 +32,7 @@ class AlbumData extends Component {
 
     // this.setState({photos: this.state.photos})
 
-    const promise= axios.get(`https://jsonplaceholder.typicode.com/photos?albumId=${param}`);
+    const promise= axios.get(`https://jsonplaceholder.typicode.com/albums/${param}/photos`);
     const responce = await promise;
     this.setState({photos: responce.data});
 
