@@ -12,10 +12,10 @@ return(
       <a className="nav-link" href="/users">Users</a>
     </li>
     <li className="nav-item ml-2">
-      <a className="nav-link" href="albums">Albums</a>
+      <a className="nav-link" href="/albums">Albums</a>
     </li>
     <li className="nav-item ml-2">
-      <a className="nav-link" href="photos">Photos</a>
+      <a className="nav-link" href="/photos">Photos</a>
     </li>
   </ul>
 </nav>

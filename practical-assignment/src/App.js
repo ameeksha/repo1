@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, Redirect, Switch} from 'react-router-dom';
+import { Route, Redirect, Switch } from 'react-router-dom';
 import './App.css';
 import NavBar from './components/navBar';
 import Users from './components/users';
@@ -10,19 +10,19 @@ import AlbumData from './components/albumData';
 
 function App() {
   return (
-  <React.Fragment>
-    <NavBar ></NavBar>,
-    <main className="container">
-       <Switch>
-        <Route path="/users/:id" component={UserData} />
-        <Route path="/users" component={Users} />
-        <Route path="/albums/:id" component={AlbumData} />
-        <Route path="/albums" component={Albums} />
-        <Route path="/photos" component={Photos} />
-        <Redirect from="/" exact to="/users" />
-       </Switch>
+    <React.Fragment>
+      <NavBar></NavBar>
+      <main className="container">
+        <Switch>
+          <Route path="/users/:id" component={UserData} />
+          <Route path="/users" component={Users} />
+          <Route path="/albums/:id" component={AlbumData} />
+          <Route path="/albums" component={Albums} />
+          <Route path="/photos" component={Photos} />
+          <Redirect from="/" exact to="/users" />
+        </Switch>
       </main>
-  </React.Fragment>
+    </React.Fragment>
   );
 }
 
