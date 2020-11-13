@@ -8,7 +8,7 @@ const Users = () => {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        axios.get('https://jsonplaceholder.typicode.com/users')
+        axios.get('/users')
             .then(res => {
                 console.log(res);
                 setUsers(res.data);
@@ -34,22 +34,22 @@ const Users = () => {
                         <th>City</th>
                         <th>Phone</th>
                         <th>Website</th>
-                        <th>Company Name</th>
+
                     </tr>
                 </thead>
                 <tbody>
                     {
                         users.map(user =>
-                            <tr key={user.id}>
-                                <td>{user.id}</td>
+                            <tr key={user._id}>
+                                <td>{user._id}</td>
                                 <td>{user.name}</td>
                                 <td>{user.username}</td>
-                                <td><Link to={`/users/${user.id}`}>{user.email}</Link></td>
-                                <td>{user.address.street}</td>
-                                <td>{user.address.city}</td>
+                                <td><Link to={`/users/${user._id}`}>{user.email}</Link></td>
+                                <td>{user.address}</td>
+                                <td>{user.city}</td>
                                 <td>{user.phone}</td>
                                 <td>{user.website}</td>
-                                <td>{user.company.name}</td>
+
                             </tr>
                         )
                     }

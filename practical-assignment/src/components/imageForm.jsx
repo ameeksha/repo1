@@ -7,25 +7,11 @@ const ImageForm = (props) => {
 
 
   const [state, setState] = useState({ albumId: props.albumId, title: '', url: '', thumbnailUrl: '' })
-  //     constructor(props)
-  //   {
-  //     super(props);
-  //     this.state ={
-  //       userId:this.props.uId,
-  //       title:''
-  //     }
-  //   }
-
-  //    const changeHandler= (e) =>
-  //   {
-  //    setState({...state,[e.target.name]: e.target.value});
-  // //    console.log(e.target.value)
-  //   }
 
   const submitHandler = e => {
     e.preventDefault();
     console.log(state);
-    axios.post('https://jsonplaceholder.typicode.com/photos', state)
+    axios.post('/photos', state)
       .then(response => {
         console.log(response);
         alert('New Photo Added');

@@ -13,7 +13,7 @@ const UserData = ({ match }) => {
     let param = match.params.id;
 
     useEffect(() => {
-        axios.get(`https://jsonplaceholder.typicode.com/users/${param}/albums`)
+        axios.get(`/users/${param}/albums`)
             .then(res => {
                 console.log(res);
                 setAlbums(res.data);
@@ -49,10 +49,10 @@ const UserData = ({ match }) => {
                 <tbody>
                     {
                         albums.map(album =>
-                            <tr key={album.id}>
-                                <td>{album.id}</td>
+                            <tr key={album._id}>
+                                <td>{album._id}</td>
                                 <td>{album.userId}</td>
-                                <td><Link to={`/albums/${album.id}`}>{album.title}</Link></td>
+                                <td><Link to={`/albums/${album._id}`}>{album.title}</Link></td>
                             </tr>
                         )
                     }

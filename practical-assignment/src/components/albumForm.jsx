@@ -11,7 +11,7 @@ const AlbumForm = (props) => {
   const submitHandler = e => {
     e.preventDefault();
     console.log(state);
-    axios.post('https://jsonplaceholder.typicode.com/albums', state)
+    axios.post('/albums', state)
       .then(response => {
         console.log(response);
         alert('New Album Added');

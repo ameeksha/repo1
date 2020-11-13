@@ -8,7 +8,7 @@ const Users = () => {
     const [albums, setAlbums] = useState([]);
 
     useEffect(() => {
-        axios.get('https://jsonplaceholder.typicode.com/albums')
+        axios.get('/albums')
             .then(res => {
                 console.log(res);
                 setAlbums(res.data);
@@ -33,10 +33,10 @@ const Users = () => {
                 <tbody>
                     {
                         albums.map(album =>
-                            <tr key={album.id}>
-                                <td>{album.id}</td>
+                            <tr key={album._id}>
+                                <td>{album._id}</td>
                                 <td>{album.userId}</td>
-                                <td><Link to={`/albums/${album.id}`}>{album.title}</Link></td>
+                                <td><Link to={`/albums/${album._id}`}>{album.title}</Link></td>
                             </tr>
                         )
                     }

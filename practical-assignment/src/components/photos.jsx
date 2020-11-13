@@ -7,7 +7,7 @@ const Users = () => {
   const [photos, setPhotos] = useState([]);
 
   useEffect(() => {
-    axios.get('https://jsonplaceholder.typicode.com/photos')
+    axios.get('/photos')
       .then(res => {
         console.log(res);
         setPhotos(res.data);

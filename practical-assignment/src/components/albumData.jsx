@@ -11,7 +11,7 @@ const AlbumData = ({ match }) => {
   let param = match.params.id;
 
   useEffect(() => {
-    axios.get(`https://jsonplaceholder.typicode.com/albums/${param}/photos`)
+    axios.get(`/albums/${param}/photos`)
       .then(res => {
         console.log(res);
         setPhotos(res.data);
@@ -38,7 +38,7 @@ const AlbumData = ({ match }) => {
         <div className="row mt-2 mb-2">
           {
             photos.map(photo =>
-              <div className='col-3 ' key={photo.id}>
+              <div className='col-3 ' key={photo._id}>
                 <img src={photo.url} alt="no" style={{ width: 300 }} />
               </div>
             )
