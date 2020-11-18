@@ -1,20 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux'
+// import { fetchAlbums } from '../redux'
+import { Link } from 'react-router-dom';
+import { fetchPhotos } from '../redux/photo/photoActions';
 
 
-const Users = () => {
 
-  const [photos, setPhotos] = useState([]);
+
+const Photos = ({ photoData, fetchPhotos }) => {
 
   useEffect(() => {
-    axios.get('/photos')
-      .then(res => {
-        console.log(res);
-        setPhotos(res.data);
-      })
-      .catch(err => {
-        console.log(err)
-      })
+    fetchPhotos()
   }, [])
 
 
@@ -24,8 +20,8 @@ const Users = () => {
       {
         <div className="row mt-2 mb-2">
           {
-            photos.map(photo =>
-              <div className='col-3 ' key={photo.id}>
+            photoData.photos.map(photo =>
+              <div className='col-3 ' key={photo._id}>
                 <img src={photo.url} alt="no" style={{ width: 300 }} />
               </div>
             )
@@ -38,4 +34,19 @@ const Users = () => {
 
 }
 
-export default Users;
+const mapStateToProps = state => {
+  return {
+    photoData: state.photo
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchPhotos: () => dispatch(fetchPhotos())
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Photos)

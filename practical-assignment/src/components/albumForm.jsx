@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import { addAlbum } from '../redux/album/albumActions';
 
 const AlbumForm = (props) => {
 
@@ -11,14 +12,15 @@ const AlbumForm = (props) => {
   const submitHandler = e => {
     e.preventDefault();
     console.log(state);
-    axios.post('/albums', state)
-      .then(response => {
-        console.log(response);
-        alert('New Album Added');
-      })
-      .catch(error => {
-        console.log(error);
-      })
+    props.addAlbum(state)
+    // axios.post('/albums', state)
+    //   .then(response => {
+    //     console.log(response);
+    //     alert('New Album Added');
+    //   })
+    //   .catch(error => {
+    //     console.log(error);
+    //   })
     setState({
       userId: '',
       title: ''
@@ -27,6 +29,7 @@ const AlbumForm = (props) => {
   }
 
   return (
+
 
     <Modal
       {...props}
@@ -54,4 +57,4 @@ const AlbumForm = (props) => {
   );
 }
 
-export default AlbumForm;
+export default connect(null, { addAlbum })(AlbumForm);

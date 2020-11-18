@@ -66,3 +66,60 @@ const UserData = ({ match }) => {
 }
 
 export default UserData;
+
+
+
+// const UserData = ({ albumData, fetchAlbums, match }) => {
+
+//   let param = match.params.id;
+//     useEffect(() => {
+//         fetchAlbums()
+//       }, [])
+
+
+
+//     return (
+
+//         <React.Fragment>
+//             <table className="table table-bordered table-hover mt-4 " >
+//                 <thead className="bg-secondary">
+//                     <tr className="text-center">
+//                         <th>Id</th>
+//                         <th>User Id</th>
+//                         <th>Title</th>
+//                     </tr>
+//                 </thead>
+//                 <tbody>
+//                     {
+//                         albumData.albums.map(album =>
+//                             <tr key={album._id}>
+//                                 <td>{album._id}</td>
+//                                 <td>{album.userId}</td>
+//                                 <td>{album.title}</td>
+//                             </tr>)
+//                     }
+//                 </tbody>
+//             </table>
+
+//         </React.Fragment>
+
+//     );
+// }
+
+
+// const mapStateToProps = state => {
+//     return {
+//       albumData: state.album
+//     }
+//   }
+
+//   const mapDispatchToProps = dispatch => {
+//     return {
+//       fetchAlbums: () => dispatch(fetchAlbums())
+//     }
+//   }
+
+//   export default connect(
+//     mapStateToProps,
+//     mapDispatchToProps
+//   )(UserData)

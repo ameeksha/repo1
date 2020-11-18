@@ -25,14 +25,11 @@ const AlbumData = ({ match }) => {
   const handleShow = () => setShow(true);
   const handleSubmit = () => setShow(false);
 
-
-
-
   return (
     <React.Fragment>
       <Button className="mt-4 mb-4" variant="primary" onClick={handleShow}>
         Add Photo
-                </Button>
+      </Button>
       <ImageForm albumId={param} show={show} onHide={handleClose} onSubmit={handleSubmit}></ImageForm>
       {
         <div className="row mt-2 mb-2">

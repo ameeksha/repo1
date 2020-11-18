@@ -1,24 +1,16 @@
 import React, { useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import { addPhoto } from '../redux/photo/photoActions';
 
 const ImageForm = (props) => {
-
-
 
   const [state, setState] = useState({ albumId: props.albumId, title: '', url: '', thumbnailUrl: '' })
 
   const submitHandler = e => {
     e.preventDefault();
     console.log(state);
-    axios.post('/photos', state)
-      .then(response => {
-        console.log(response);
-        alert('New Photo Added');
-      })
-      .catch(error => {
-        console.log(error);
-      })
+    props.addPhoto(state)
     setState({
       albumId: '',
       title: '',
@@ -64,4 +56,4 @@ const ImageForm = (props) => {
   );
 }
 
-export default ImageForm;
+export default connect(null, { addPhoto })(ImageForm);
