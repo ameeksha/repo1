@@ -1,125 +1,78 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { connect } from 'react-redux'
 import { Button, Modal } from 'react-bootstrap';
 import AlbumForm from './albumForm';
+import { Link } from 'react-router-dom';
+import { fetchAlbums } from '../redux/userData/userDataActions';
 
 
 
-const UserData = ({ match }) => {
+const UserData = ({ albumData, fetchAlbums, match }) => {
 
-    const [show, setShow] = useState(false);
-    const [albums, setAlbums] = useState([]);
-    let param = match.params.id;
+  let param = match.params.id;
 
-    useEffect(() => {
-        axios.get(`/users/${param}/albums`)
-            .then(res => {
-                console.log(res);
-                setAlbums(res.data);
-            })
-            .catch(err => {
-                console.log(err)
-            })
-    }, [])
+  const [show, setShow] = useState(false);
 
+  useEffect(() => {
+    fetchAlbums()
+  }, [])
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-    const handleSubmit = () => setShow(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  const handleSubmit = () => setShow(false);
 
+  return (
 
-    return (
+    <React.Fragment>
+      <Button className="mt-4 mb-4" variant="primary" onClick={handleShow}>
+        Add Album
+       </Button>
+      <AlbumForm userId={param} show={show} onHide={handleClose} onSubmit={handleSubmit}></AlbumForm>
 
-        <React.Fragment>
+      <table className="table table-bordered table-hover mt-4 " >
+        <thead className="bg-secondary">
+          <tr className="text-center">
+            <th>Id</th>
+            <th>User Id</th>
+            <th>Title</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            albumData.albums.map(album =>
+              <tr key={album._id}>
+                <td>{album._id}</td>
+                <td>{album.userId}</td>
+                <td><Link to={`/albums/${album._id}`}>{album.title}</Link></td>
+              </tr>)
+          }
+        </tbody>
+      </table>
 
-            <Button className="mt-4 mb-4" variant="primary" onClick={handleShow}>
-                Add Album
-          </Button>
-            <AlbumForm uId={param} show={show} onHide={handleClose} onSubmit={handleSubmit}></AlbumForm>
+    </React.Fragment>
 
-            <table className="table table-bordered table-hover" >
-                <thead className='bg-secondary'>
-                    <tr className="text-center">
-                        <th>Id</th>
-                        <th>User Id</th>
-                        <th>Title</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        albums.map(album =>
-                            <tr key={album._id}>
-                                <td>{album._id}</td>
-                                <td>{album.userId}</td>
-                                <td><Link to={`/albums/${album._id}`}>{album.title}</Link></td>
-                            </tr>
-                        )
-                    }
-                </tbody>
-            </table>
-
-
-        </React.Fragment>
-
-    );
+  );
 }
 
-export default UserData;
+
+const mapStateToProps = (state, ownprops) => {
+  return {
+    albumData: state.album
+  }
+}
+
+const mapDispatchToProps = (dispatch, { match }) => {
+  let param = match.params.id;
+  console.log('tus')
+  console.log(param)
+  return {
+    fetchAlbums: () => dispatch(fetchAlbums(param))
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(UserData)
 
 
-
-// const UserData = ({ albumData, fetchAlbums, match }) => {
-
-//   let param = match.params.id;
-//     useEffect(() => {
-//         fetchAlbums()
-//       }, [])
-
-
-
-//     return (
-
-//         <React.Fragment>
-//             <table className="table table-bordered table-hover mt-4 " >
-//                 <thead className="bg-secondary">
-//                     <tr className="text-center">
-//                         <th>Id</th>
-//                         <th>User Id</th>
-//                         <th>Title</th>
-//                     </tr>
-//                 </thead>
-//                 <tbody>
-//                     {
-//                         albumData.albums.map(album =>
-//                             <tr key={album._id}>
-//                                 <td>{album._id}</td>
-//                                 <td>{album.userId}</td>
-//                                 <td>{album.title}</td>
-//                             </tr>)
-//                     }
-//                 </tbody>
-//             </table>
-
-//         </React.Fragment>
-
-//     );
-// }
-
-
-// const mapStateToProps = state => {
-//     return {
-//       albumData: state.album
-//     }
-//   }
-
-//   const mapDispatchToProps = dispatch => {
-//     return {
-//       fetchAlbums: () => dispatch(fetchAlbums())
-//     }
-//   }
-
-//   export default connect(
-//     mapStateToProps,
-//     mapDispatchToProps
-//   )(UserData)

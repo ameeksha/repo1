@@ -7,7 +7,7 @@ const AlbumForm = (props) => {
 
 
 
-  const [state, setState] = useState({ userId: props.uId, title: '' });
+  const [state, setState] = useState({ userId: props.userId, title: '' });
 
   const submitHandler = e => {
     e.preventDefault();

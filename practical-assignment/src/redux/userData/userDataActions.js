@@ -1,12 +1,11 @@
 import axios from 'axios'
-import { matchPath } from 'react-router-dom'
 
-export const fetchAlbums = () => {
+export const fetchAlbums = (props) => {
 
   return (dispatch) => {
     dispatch(fetchAlbumsRequest())
     axios
-      .get('/albums')
+      .get(`/users/${props}/albums`)
       .then(response => {
         const albums = response.data
         dispatch(fetchAlbumsSuccess(albums))

@@ -1,24 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import { connect } from 'react-redux'
+import { fetchPhotos } from '../redux/albumData/albumDataActions';
 import ImageForm from './imageForm';
 import { Button } from 'react-bootstrap';
 
-const AlbumData = ({ match }) => {
 
-  const [show, setShow] = useState(false);
-  const [photos, setPhotos] = useState([]);
+const AlbumData = ({ photoData, fetchPhotos, match }) => {
 
   let param = match.params.id;
 
+  const [show, setShow] = useState(false);
+
   useEffect(() => {
-    axios.get(`/albums/${param}/photos`)
-      .then(res => {
-        console.log(res);
-        setPhotos(res.data);
-      })
-      .catch(err => {
-        console.log(err)
-      })
+    fetchPhotos()
   }, [])
 
   const handleClose = () => setShow(false);
@@ -34,7 +28,7 @@ const AlbumData = ({ match }) => {
       {
         <div className="row mt-2 mb-2">
           {
-            photos.map(photo =>
+            photoData.photos.map(photo =>
               <div className='col-3 ' key={photo._id}>
                 <img src={photo.url} alt="no" style={{ width: 300 }} />
               </div>
@@ -43,7 +37,25 @@ const AlbumData = ({ match }) => {
         </div>
       }
     </React.Fragment>
+
   );
+
 }
 
-export default AlbumData;
+const mapStateToProps = state => {
+  return {
+    photoData: state.photo
+  }
+}
+
+const mapDispatchToProps = (dispatch, { match }) => {
+  let param = match.params.id;
+  return {
+    fetchPhotos: () => dispatch(fetchPhotos(param))
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AlbumData)

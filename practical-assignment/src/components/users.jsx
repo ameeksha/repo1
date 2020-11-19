@@ -49,7 +49,8 @@ const Users = ({ userData, fetchUsers }) => {
   )
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
+
   return {
     userData: state.user
   }
